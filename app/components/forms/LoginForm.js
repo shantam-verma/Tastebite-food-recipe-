@@ -25,9 +25,11 @@ export default function LoginForm() {
         password: values.password,
       });
 
+      console.log('result', result);
+
       if (result?.error) {
         setIsError('Please enter correct credentials!');
-      } else {
+      } else if (result?.status === 200) {
         router.push('/');
       }
     } catch (error) {

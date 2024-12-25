@@ -2,8 +2,6 @@
 import LoginForm from '@/app/components/forms/LoginForm';
 import React from 'react';
 import { Typography } from '@/app/components/common/Typography';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 import Image from 'next/image';
 
 function Login() {
