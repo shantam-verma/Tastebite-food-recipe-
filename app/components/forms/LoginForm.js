@@ -16,29 +16,23 @@ export default function LoginForm() {
   const [isError, setIsError] = useState('');
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
-    setIsError('');
     try {
-      // Use NextAuth's signIn method with credentials
       const result = await signIn('credentials', {
-        redirect: false,
         username: values.username,
         password: values.password,
+        redirect: true,
         callbackUrl: '/',
       });
 
-      console.log('result', result);
+      // The above will handle redirect automatically if successful
 
       if (result?.error) {
         setIsError('Please enter correct credentials!');
-      } else if (result?.ok) {
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        router.replace('/');
+        resetForm();
       }
     } catch (error) {
-      console.error('Login Failed', error);
       setIsError('Login Failed. Please try again.');
     } finally {
-      resetForm();
       setSubmitting(false);
     }
   };
