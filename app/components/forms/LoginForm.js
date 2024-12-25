@@ -31,7 +31,8 @@ export default function LoginForm() {
       if (result?.error) {
         setIsError('Please enter correct credentials!');
       } else if (result?.ok) {
-        router.push('/');
+        // await new Promise((resolve) => setTimeout(resolve, 500));
+        router.replace('/');
       }
     } catch (error) {
       console.error('Login Failed', error);
