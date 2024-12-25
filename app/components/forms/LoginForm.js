@@ -30,7 +30,7 @@ export default function LoginForm() {
       if (result?.error) {
         setIsError('Please enter correct credentials!');
       } else if (result?.status === 200) {
-        router.push('/');
+        await router.push('/');
       }
     } catch (error) {
       console.error('Login Failed', error);
