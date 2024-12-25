@@ -23,6 +23,7 @@ export default function LoginForm() {
         redirect: false,
         username: values.username,
         password: values.password,
+        callbackUrl: '/',
       });
 
       console.log('result', result);
