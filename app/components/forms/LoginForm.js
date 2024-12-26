@@ -7,11 +7,9 @@ import { AiOutlineEye } from 'react-icons/ai';
 import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { ActionButton } from '../ui/server/ActionButton';
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 import { ErrorText } from './ErrorText';
 
 export default function LoginForm() {
-  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isError, setIsError] = useState('');
 
@@ -23,8 +21,6 @@ export default function LoginForm() {
         redirect: true,
         callbackUrl: '/',
       });
-
-      // The above will handle redirect automatically if successful
 
       if (result?.error) {
         setIsError('Please enter correct credentials!');

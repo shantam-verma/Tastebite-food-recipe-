@@ -4,6 +4,9 @@ const nextConfig = {
   experimental: {
     serverActions: true,
   },
+  images: {
+    domains: ['www.themealdb.com'],
+  },
   reactStrictMode: false,
 };
 

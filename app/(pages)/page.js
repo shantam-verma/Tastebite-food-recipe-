@@ -4,6 +4,8 @@ import { Hero } from '../components/home/Hero';
 import { CommonCard } from '../components/ui/cards/CommonCard';
 import { ActionCard } from '../components/ui/cards/ActionCard';
 import SubscribeFrom from '../components/forms/SubscribeFrom';
+import { MealCategories } from '../components/home/MealCategories';
+import { TrendingNow } from '../components/home/TrendingNow';
 
 export default function Home() {
   console.log('home');
@@ -21,12 +23,7 @@ export default function Home() {
         </div>
       </section>
       <section className="mt-10">
-        <Typography as="h2" variant="h2">
-          Popular Categories
-        </Typography>
-        <div className="mt-8">
-          <CommonCard />
-        </div>
+        <TrendingNow />
       </section>
       <section className="mt-10 bg-accent-1 text-center py-10 md:p-20">
         <Typography
@@ -43,12 +40,7 @@ export default function Home() {
         <SubscribeFrom />
       </section>
       <section className="mt-10">
-        <Typography as="h2" variant="h2">
-          Popular Categories
-        </Typography>
-        <div className="mt-8">
-          <ActionCard />
-        </div>
+        <MealCategories />
       </section>
     </article>
   );

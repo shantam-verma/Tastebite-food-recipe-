@@ -5,7 +5,14 @@ import { usePathname, useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { AUTH_PATHS } from '@/app/utils/data';
 
-function RouterButton({ children, onClick, navigateTo, className, ...props }) {
+function RouterButton({
+  children,
+  onClick,
+  navigateTo,
+  variant,
+  className,
+  ...props
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const isAuthPage = AUTH_PATHS.includes(pathname);
@@ -21,7 +28,8 @@ function RouterButton({ children, onClick, navigateTo, className, ...props }) {
 
   return (
     <Button
-      className={`${isAuthPage ? 'hidden' : `bg-btn-bg text-btn-text hover:text-btn-bg hover:bg-btn-text ${className}`} `}
+      variant={variant}
+      className={`${isAuthPage ? 'hidden' : `${variant === 'link' ? '' : `bg-btn-bg text-btn-text hover:text-btn-bg hover:bg-btn-text`}`}${className}`}
       onClick={handleClick}
       {...props}
     >
