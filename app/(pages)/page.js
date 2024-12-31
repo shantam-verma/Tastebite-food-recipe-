@@ -1,11 +1,9 @@
 import { Typography } from '../components/common/Typography';
-import { RoundedCard } from '../components/ui/cards/RoundedCard';
-import { Hero } from '../components/home/Hero';
-import { CommonCard } from '../components/ui/cards/CommonCard';
-import { ActionCard } from '../components/ui/cards/ActionCard';
+import { Hero } from '../components/pages/home/Hero';
 import SubscribeFrom from '../components/forms/SubscribeFrom';
-import { MealCategories } from '../components/home/MealCategories';
-import { TrendingNow } from '../components/home/TrendingNow';
+import { MealCategories } from '../components/pages/home/MealCategories';
+import { TrendingNow } from '../components/pages/home/TrendingNow';
+import { BrowseByCountry } from '../components/pages/home/BrowseByCountry';
 
 export default function Home() {
   console.log('home');
@@ -15,12 +13,7 @@ export default function Home() {
         <Hero />
       </section>
       <section className="mt-10">
-        <Typography as="h2" variant="h2">
-          Popular Categories
-        </Typography>
-        <div className="mt-8">
-          <RoundedCard />
-        </div>
+        <BrowseByCountry />
       </section>
       <section className="mt-10">
         <TrendingNow />

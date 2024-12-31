@@ -5,7 +5,7 @@ const nextConfig = {
     serverActions: true,
   },
   images: {
-    domains: ['www.themealdb.com'],
+    domains: ['flagcdn.com', 'www.themealdb.com'],
   },
   reactStrictMode: false,
 };

@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-import { Typography } from '../common/Typography';
-import { ActionCard } from '../ui/cards/ActionCard';
+import { Typography } from '../../common/Typography';
+import { ActionCard } from '../../ui/cards/ActionCard';
 import ApiServices from '@/app/api/apiServices';
 
 export async function MealCategories() {

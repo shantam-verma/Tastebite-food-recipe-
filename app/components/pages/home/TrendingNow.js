@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react';
-import { Typography } from '../common/Typography';
-import { CommonCard } from '../ui/cards/CommonCard';
+import { Typography } from '../../common/Typography';
+import { CommonCard } from '../../ui/cards/CommonCard';
 import ApiServices from '@/app/api/apiServices';
-import RouterButton from '../ui/client/RouterButton';
+import RouterButton from '../../ui/client/RouterButton';
 
 export async function TrendingNow() {
   let filter = [];
   try {
-    filter = await ApiServices.fetchFilter();
-    filter = filter.slice(0, 4);
+    const params = { c: 'Vegetarian' };
+    filter = await ApiServices.fetchFilter(params);
+    filter = filter?.slice(0, 8);
     console.log('filter', filter);
   } catch (error) {
     console.error('Error fetching filter:', error);

@@ -1,6 +1,6 @@
 import React from 'react';
-import { DynamicImage } from '../ui/server/DynamicImage';
-import { Typography } from '../common/Typography';
+import { DynamicImage } from '../../ui/server/DynamicImage';
+import { Typography } from '../../common/Typography';
 
 export function Hero() {
   return (
