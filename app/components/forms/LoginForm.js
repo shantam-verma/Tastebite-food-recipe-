@@ -8,10 +8,8 @@ import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { ActionButton } from '../ui/server/ActionButton';
 import { signIn } from 'next-auth/react';
 import { ErrorText } from './ErrorText';
-import { useRouter } from 'next/navigation';
 
 export default function LoginForm() {
-  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isError, setIsError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +29,8 @@ export default function LoginForm() {
         setIsLoading(false);
         resetForm();
       } else if (result?.ok) {
-        router.push('/');
+        window.location.href = '/';
+        // router.push('/');
       }
     } catch (error) {
       setIsError('Login Failed. Please try again.');
