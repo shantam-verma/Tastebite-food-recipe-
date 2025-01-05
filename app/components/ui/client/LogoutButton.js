@@ -8,7 +8,6 @@ import { AUTH_PATHS } from '@/app/utils/data';
 export function LogoutButton() {
   const pathname = usePathname();
   const isAuthPage = AUTH_PATHS.includes(pathname);
-  console.log('isAuthPage', isAuthPage);
 
   if (isAuthPage) {
     return;

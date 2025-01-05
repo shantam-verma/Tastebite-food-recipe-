@@ -1,13 +1,12 @@
 import SearchForm from '@/app/components/forms/Search';
 import { CommonCard } from '@/app/components/ui/cards/CommonCard';
-import { getSearchResults } from '@/lib/search';
+import { getSearchResults } from '@/app/hooks/search';
 import React, { Fragment, Suspense } from 'react';
 import CommonCardShimmerUi from '../../components/ui/shimmer/CommonCardShimmer';
 
 export default async function Search({ searchParams }) {
   const { query } = await searchParams;
   const results = await getSearchResults(query);
-  console.log('query', query);
 
   return (
     <Fragment>

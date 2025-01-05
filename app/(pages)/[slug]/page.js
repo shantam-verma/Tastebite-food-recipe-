@@ -5,30 +5,22 @@ import { CommonCard } from '@/app/components/ui/cards/CommonCard';
 import { DynamicImage } from '@/app/components/ui/server/DynamicImage';
 import { notFound } from 'next/navigation';
 import CommonCardShimmerUi from '@/app/components/ui/shimmer/CommonCardShimmer';
+import { getCategoriesResults } from '@/app/hooks/categories';
+import { getFilterResults } from '@/app/hooks/filter';
 
 export default async function Meal({ params }) {
   let slug = (await params).slug;
   let [meal, category] = slug.split('-');
-  let categories = [];
   let data;
   let response = [];
   if (meal === 'meal' && category) {
     category = category.charAt(0).toUpperCase() + category.slice(1);
-    console.log('category', category);
 
-    try {
-      categories = await ApiServices.fetchAllMealCategories();
-      data = categories.find((ele) => ele?.strCategory === category);
-    } catch (error) {
-      console.error('Error fetching categories:', error);
-    }
+    const categories = await getCategoriesResults();
+    data = categories.find((ele) => ele?.strCategory === category);
+    const params = { c: category };
 
-    try {
-      response = await ApiServices.fetchFilter({ c: category });
-    } catch (error) {
-      console.error('Error fetching filter:', error);
-    }
-    console.log('shantam', { categories, data, response });
+    response = await getFilterResults(params);
   }
 
   if (meal !== 'meal' || !category || !response) {

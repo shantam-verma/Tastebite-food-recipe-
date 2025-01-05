@@ -7,7 +7,6 @@ import { MobileNavbar } from './MobileNavbar';
 import { LogoutButton } from '../../ui/client/LogoutButton';
 
 function Navbar() {
-  console.log('navbar');
 
   return (
     <div className="mx-auto w-full max-w-screen-xl flex justify-between items-center">

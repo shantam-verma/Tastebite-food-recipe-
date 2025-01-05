@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { DynamicImage } from '../server/DynamicImage';
-import { CATEGORIES } from '@/app/utils/data';
 
 export function ActionCard({ data }) {
   if (!data || Object.keys(data).length === 0) {

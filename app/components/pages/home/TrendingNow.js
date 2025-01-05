@@ -5,17 +5,13 @@ import ApiServices from '@/app/api/apiServices';
 import RouterButton from '../../ui/client/RouterButton';
 import CommonCardShimmerUi from '../../ui/shimmer/CommonCardShimmer';
 import { notFound } from 'next/navigation';
+import { getFilterResults } from '@/app/hooks/filter';
 
 export async function TrendingNow() {
-  let filter = [];
-  try {
-    const params = { c: 'Vegetarian' };
-    filter = await ApiServices.fetchFilter(params);
-    filter = filter?.slice(0, 8);
-    console.log('filter', filter);
-  } catch (error) {
-    console.error('Error fetching filter:', error);
-  }
+  const params = { c: 'Vegetarian' };
+
+  let filter = await getFilterResults(params);
+  filter = filter?.slice(0, 8);
 
   if (!filter) {
     notFound();

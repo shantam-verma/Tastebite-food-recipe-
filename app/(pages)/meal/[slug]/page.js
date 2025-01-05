@@ -1,6 +1,7 @@
 import ApiServices from '@/app/api/apiServices';
 import { Typography } from '@/app/components/common/Typography';
 import { DynamicImage } from '@/app/components/ui/server/DynamicImage';
+import { INGREDIENT_IMG_URL } from '@/app/utils/constants';
 import { slugify } from '@/app/utils/helpers';
 import Link from 'next/link';
 import React, { Fragment } from 'react';
@@ -11,7 +12,6 @@ export default async function SingleMeal({ params }) {
   try {
     response = await ApiServices.fetchSingleMeal({ i: slug });
     response = response?.meals?.[0];
-    console.log('response', response);
   } catch (error) {
     console.error('Error fetching filter:', error);
   }
@@ -49,7 +49,6 @@ export default async function SingleMeal({ params }) {
     return videoId[videoId?.length - 1];
   };
   const videoId = formatYoutubeLink(response?.strYoutube);
-  console.log('videoId', videoId);
 
   const ingredientsList = getIngredientsAndMeasures(response);
   const instructions = formatInstructions(response?.strInstructions);
@@ -76,7 +75,7 @@ export default async function SingleMeal({ params }) {
           >
             <DynamicImage
               alt={ele.ingredient}
-              url={`https://www.themealdb.com/images/ingredients/${ele.ingredient}.png`}
+              url={`${INGREDIENT_IMG_URL}${ele.ingredient}.png`}
             />
             <Typography as="p" variant="body">
               {ele.measure} {ele.ingredient}

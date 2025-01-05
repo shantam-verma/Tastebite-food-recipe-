@@ -6,7 +6,6 @@ import { TrendingNow } from '../components/pages/home/TrendingNow';
 import { BrowseByCountry } from '../components/pages/home/BrowseByCountry';
 
 export default function Home() {
-  console.log('home');
   return (
     <article>
       <section>

@@ -13,7 +13,7 @@ export default async function Template({ children }) {
         {children}
       </main>
 
-      <footer className="bg-white dark:bg-gray-900">
+      <footer className="bg-white dark:bg-gray-900 mt-10">
         <Footer />
       </footer>
     </div>

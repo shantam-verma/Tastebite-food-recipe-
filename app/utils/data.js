@@ -1,14 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
 
-export const CATEGORIES = [
-  { id: uuidv4(), strMeal: 'Pasta', strMealThumb: '/images/pasta.png' },
-  { id: uuidv4(), strMeal: 'Pizza', strMealThumb: '/images/pasta.png' },
-  { id: uuidv4(), strMeal: 'Rools', strMealThumb: '/images/pasta.png' },
-  { id: uuidv4(), strMeal: 'Desert', strMealThumb: '/images/pasta.png' },
-  { id: uuidv4(), strMeal: 'Bun', strMealThumb: '/images/pasta.png' },
-  { id: uuidv4(), strMeal: 'Spaghetti', strMealThumb: '/images/pasta.png' },
-];
-
 export const AUTH_PATHS = ['/login'];
 
 export const NAV_LINKS = [
