@@ -17,10 +17,11 @@ export default async function Ingredient({ params }) {
   } catch (error) {
     console.error('Error fetching filter:', error);
   }
-  console.log('response098', response);
+
   if (!response) {
     notFound();
   }
+  
   return (
     <Fragment>
       <div className="float-left w-full sm:w-1/3 mr-6">

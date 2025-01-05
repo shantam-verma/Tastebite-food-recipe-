@@ -1,6 +1,7 @@
 import ApiServices from '@/app/api/apiServices';
 import { CommonCard } from '@/app/components/ui/cards/CommonCard';
 import CommonCardShimmerUi from '@/app/components/ui/shimmer/CommonCardShimmer';
+import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
 export default async function All({ params }) {
@@ -13,6 +14,11 @@ export default async function All({ params }) {
   } catch (error) {
     return 'Somthing went wrong';
   }
+
+  if (!response) {
+    notFound();
+  }
+  
   return (
     <Suspense fallback={<CommonCardShimmerUi />}>
       <CommonCard data={response} />

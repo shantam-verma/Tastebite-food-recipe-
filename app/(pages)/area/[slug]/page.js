@@ -1,6 +1,7 @@
 import ApiServices from '@/app/api/apiServices';
 import { CommonCard } from '@/app/components/ui/cards/CommonCard';
 import CommonCardShimmerUi from '@/app/components/ui/shimmer/CommonCardShimmer';
+import { notFound } from 'next/navigation';
 import React, { Suspense } from 'react';
 
 export default async function Area({ params }) {
@@ -13,6 +14,11 @@ export default async function Area({ params }) {
   } catch (error) {
     console.error('Error fetching filter:', error);
   }
+
+  if (!response) {
+    notFound();
+  }
+
   return (
     <Suspense fallback={<CommonCardShimmerUi />}>
       <CommonCard data={response} />

@@ -4,6 +4,7 @@ import { CommonCard } from '../../ui/cards/CommonCard';
 import ApiServices from '@/app/api/apiServices';
 import RouterButton from '../../ui/client/RouterButton';
 import CommonCardShimmerUi from '../../ui/shimmer/CommonCardShimmer';
+import { notFound } from 'next/navigation';
 
 export async function TrendingNow() {
   let filter = [];
@@ -15,6 +16,11 @@ export async function TrendingNow() {
   } catch (error) {
     console.error('Error fetching filter:', error);
   }
+
+  if (!filter) {
+    notFound();
+  }
+
   return (
     <Fragment>
       <div className="flex justify-between items-end">
