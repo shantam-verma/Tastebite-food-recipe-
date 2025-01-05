@@ -15,7 +15,7 @@ export function Hero() {
         variant="h1"
         className="absolute bottom-[10%] left-0 text-white bg-black bg-opacity-50 p-4"
       >
-        Order your favourite food here
+        Cooking Made Simple: Find Your Next Favorite Recipe
       </Typography>
     </div>
   );

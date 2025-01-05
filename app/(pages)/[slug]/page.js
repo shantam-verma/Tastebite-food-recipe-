@@ -50,15 +50,13 @@ export default async function Meal({ params }) {
           </Typography>
         </div>
       </div>
-      <div className="mt-7 float-left">
+      <div className="pt-9 clear-both">
         {/* <Typography as="h2" variant="h3">
           More
         </Typography> */}
-        <div className="mt-8">
-          <Suspense fallback={<CommonCardShimmerUi />}>
-            <CommonCard data={response} />
-          </Suspense>
-        </div>
+        <Suspense fallback={<CommonCardShimmerUi />}>
+          <CommonCard data={response} />
+        </Suspense>
       </div>
     </Fragment>
   );

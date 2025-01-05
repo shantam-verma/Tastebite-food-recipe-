@@ -8,7 +8,7 @@ function RouterButton({
   children,
   onClick,
   navigateTo,
-  variant,
+  variant = 'secondary',
   className,
   ...props
 }) {
@@ -26,7 +26,7 @@ function RouterButton({
   return (
     <Button
       variant={variant}
-      className={`${variant === 'link' ? '' : `bg-btn-bg text-btn-text hover:bg-btn-text`}}${className}`}
+      className={`${variant === 'link' ? '' : `bg-btn-bg text-btn-text hover:text-btn-bg hover:bg-btn-text`}`}
       onClick={handleClick}
       {...props}
     >

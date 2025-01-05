@@ -4,7 +4,7 @@ import React from 'react';
 export function ActionButton({
   children,
   className,
-  variant = 'default',
+  variant = 'secondary',
   ...props
 }) {
   return (

@@ -24,7 +24,6 @@ function ThemeSwitcher() {
   }
   return (
     <ActionButton
-      className="bg-btn-bg text-btn-text"
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
       disabled={resolvedTheme === undefined}
     >

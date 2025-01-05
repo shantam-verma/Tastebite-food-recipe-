@@ -9,11 +9,13 @@ export default async function Template({ children }) {
         <Navbar />
       </header>
 
-      <main className="flex-grow p-4 mx-auto w-full max-w-screen-xl">{children}</main>
+      <main className="flex-grow p-4 mx-auto w-full max-w-screen-xl">
+        {children}
+      </main>
 
-      <footer className="bg-background">
+      <footer className="bg-white dark:bg-gray-900">
         <Footer />
       </footer>
-    </div>  
+    </div>
   );
 }
