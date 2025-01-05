@@ -1,9 +1,21 @@
-import { RoundedCard } from '@/app/components/ui/cards/RoundedCard';
-import { COUNTRIES } from '@/app/utils/data';
-import React from 'react';
+import ApiServices from '@/app/api/apiServices';
+import { CommonCard } from '@/app/components/ui/cards/CommonCard';
+import CommonCardShimmerUi from '@/app/components/ui/shimmer/CommonCardShimmer';
+import React, { Suspense } from 'react';
 
 export default async function Area({ params }) {
-  const slug = (await params).slug;
-
-  return <RoundedCard data={COUNTRIES.slice(0, 27)} />;
+  let slug = (await params).slug;
+  slug = slug.charAt(0).toUpperCase() + slug.slice(1);
+  console.log('slug', slug);
+  let response = [];
+  try {
+    response = await ApiServices.fetchFilter({ a: slug });
+  } catch (error) {
+    console.error('Error fetching filter:', error);
+  }
+  return (
+    <Suspense fallback={<CommonCardShimmerUi />}>
+      <CommonCard data={response} />
+    </Suspense>
+  );
 }

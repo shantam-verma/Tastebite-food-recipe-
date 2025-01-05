@@ -1,9 +1,8 @@
 'use client';
 
 import React from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { AUTH_PATHS } from '@/app/utils/data';
 
 function RouterButton({
   children,
@@ -14,8 +13,6 @@ function RouterButton({
   ...props
 }) {
   const router = useRouter();
-  const pathname = usePathname();
-  const isAuthPage = AUTH_PATHS.includes(pathname);
 
   const handleClick = (event) => {
     if (onClick) {
@@ -29,7 +26,7 @@ function RouterButton({
   return (
     <Button
       variant={variant}
-      className={`${isAuthPage ? 'hidden' : `${variant === 'link' ? '' : `bg-btn-bg text-btn-text hover:text-btn-bg hover:bg-btn-text`}`}${className}`}
+      className={`${variant === 'link' ? '' : `bg-btn-bg text-btn-text hover:bg-btn-text`}}${className}`}
       onClick={handleClick}
       {...props}
     >

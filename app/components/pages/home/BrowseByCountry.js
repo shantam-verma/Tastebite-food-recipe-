@@ -12,7 +12,7 @@ export async function BrowseByCountry() {
         <Typography as="h2" variant="h2">
           Browse Country
         </Typography>
-        <RouterButton navigateTo={'/area/all'} variant="link">
+        <RouterButton navigateTo={'/area'} variant="link">
           View all
         </RouterButton>
       </div>

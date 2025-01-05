@@ -8,6 +8,7 @@ export async function DynamicImage({ url, alt, className }) {
     <Image
       {...img}
       alt={alt || ''}
+      title={alt || ''}
       placeholder="blur"
       blurDataURL={base64}
       className={className}

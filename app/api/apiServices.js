@@ -7,6 +7,8 @@ function getApiUrl(path) {
 const API_ENDPOINTS = {
   allMealCategories: 'api/json/v1/1/categories.php',
   filterMeal: 'api/json/v1/1/filter.php',
+  singleMeal: 'api/json/v1/1/lookup.php',
+  searchMeal: 'api/json/v1/1/search.php',
 };
 
 async function fetchApi(url, params = {}) {
@@ -70,6 +72,26 @@ class ApiServices {
       return data?.meals;
     } catch (error) {
       console.error('Error fetching meal filter:', error);
+    }
+  }
+
+  static async fetchSingleMeal(params) {
+    const url = getApiUrl(API_ENDPOINTS.singleMeal);
+    try {
+      const data = fetchApi(url, params);
+      return data;
+    } catch (error) {
+      console.error('Error fetching single meal: ', error);
+    }
+  }
+
+  static async fetchSearchMeal(params) {
+    const url = getApiUrl(API_ENDPOINTS.searchMeal);
+    try {
+      const data = fetchApi(url, params);
+      return data;
+    } catch (error) {
+      console.error('Error fetching search meal: ', error);
     }
   }
 

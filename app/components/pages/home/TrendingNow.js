@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Suspense } from 'react';
 import { Typography } from '../../common/Typography';
 import { CommonCard } from '../../ui/cards/CommonCard';
 import ApiServices from '@/app/api/apiServices';
 import RouterButton from '../../ui/client/RouterButton';
+import CommonCardShimmerUi from '../../ui/shimmer/CommonCardShimmer';
 
 export async function TrendingNow() {
   let filter = [];
@@ -25,7 +26,9 @@ export async function TrendingNow() {
         </RouterButton>
       </div>
       <div className="mt-8">
-        <CommonCard data={filter} />
+        <Suspense fallback={<CommonCardShimmerUi />}>
+          <CommonCard data={filter} />
+        </Suspense>
       </div>
     </Fragment>
   );

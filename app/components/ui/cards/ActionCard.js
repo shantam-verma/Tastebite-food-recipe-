@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { DynamicImage } from '../server/DynamicImage';
 import { CATEGORIES } from '@/app/utils/data';
 
@@ -13,17 +14,19 @@ export function ActionCard({ data }) {
           key={ele.idCategory}
           className="w-full rounded overflow-hidden shadow-lg"
         >
-          <DynamicImage
-            className="w-full"
-            url={ele.strCategoryThumb}
-            alt={ele.label}
-          />
-          <div className="px-6 py-4">
-            <div className="font-bold text-xl mb-2">{ele.strCategory}</div>
-            <p className="text-content/60 text-base line-clamp-4">
-              {ele.strCategoryDescription}
-            </p>
-          </div>
+          <Link href={`meal-${ele.strCategory.toLowerCase()}`}>
+            <DynamicImage
+              className="w-full"
+              url={ele.strCategoryThumb}
+              alt={ele.label}
+            />
+            <div className="px-6 py-4">
+              <div className="font-bold text-xl mb-2">{ele.strCategory}</div>
+              <p className="text-content/60 text-base line-clamp-4">
+                {ele.strCategoryDescription}
+              </p>
+            </div>
+          </Link>
           {/* <div className="px-6 pt-4 pb-2">
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
               #photography
