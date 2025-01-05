@@ -1,24 +1,52 @@
+// components/ErrorBoundary.js
 'use client'; // Error boundaries must be Client Components
 
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
+import { Typography } from './components/common/Typography';
+import RouterButton from './components/ui/client/RouterButton';
+import { useRouter } from 'next/navigation';
 
-export default function Error({ error, reset }) {
-  useEffect(() => {
-    // Log the error to an error reporting service
-    console.error(error);
-  }, [error]);
+export default function ErrorBoundary({ error, reset }) {
+  const router = useRouter();
+
+  //   useEffect(() => {
+  //     // Log the error to an error reporting service (e.g., Sentry)
+  //     console.error(error);
+  //   }, [error]);
+
+  const handleRetry = () => {
+    // You can reload the current page
+    router.refresh();
+  };
 
   return (
-    <div>
-      <h2>Something went wrong!</h2>
-      <button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
-      </button>
-    </div>
+    <section className="flex items-center justify-center p-8">
+      <div className="text-center max-w-md">
+        <Typography
+          as="h1"
+          variant="h1"
+          className="text-5xl font-extrabold mb-4"
+        >
+          Something Went Wrong
+        </Typography>
+        <Typography as="p" variant="body" className="text-xl mb-8">
+          Oops! We encountered an error while trying to load this page.
+        </Typography>
+        <RouterButton
+          onClick={handleRetry}
+          className="px-6 py-3 font-semibold  text-white rounded-lg"
+        >
+          Try Again
+        </RouterButton>
+        <div className="mt-6">
+          <RouterButton
+            navigateTo="/"
+            className="px-6 py-3 font-semibold rounded-lg"
+          >
+            Go Back to Homepage
+          </RouterButton>
+        </div>
+      </div>
+    </section>
   );
 }
