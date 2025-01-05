@@ -9,7 +9,7 @@ export async function BrowseByCountry() {
   return (
     <Fragment>
       <div className="flex justify-between items-end">
-        <Typography as="h2" variant="h2">
+        <Typography as="h2" variant="h3">
           Browse Country
         </Typography>
         <RouterButton navigateTo={'/area'} variant="link">

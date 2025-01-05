@@ -1,5 +1,4 @@
 import React, { Fragment, Suspense } from 'react';
-import ApiServices from '@/app/api/apiServices';
 import { Typography } from '@/app/components/common/Typography';
 import { CommonCard } from '@/app/components/ui/cards/CommonCard';
 import { DynamicImage } from '@/app/components/ui/server/DynamicImage';

@@ -5,6 +5,12 @@ import { MealCategories } from '../components/pages/home/MealCategories';
 import { TrendingNow } from '../components/pages/home/TrendingNow';
 import { BrowseByCountry } from '../components/pages/home/BrowseByCountry';
 
+export const metadata = {
+  title: 'Welcome to TasteBite – Your Recipe Hub for Every Meal',
+  description:
+    'Discover a world of flavors with TasteBite! Explore simple, delicious recipes for every occasion. From quick meals to indulgent treats, we’ve got something for every taste and skill level. Start cooking with us today and make every bite count!',
+};
+
 export default function Home() {
   return (
     <article>

@@ -1,7 +1,6 @@
 import React, { Fragment, Suspense } from 'react';
 import { Typography } from '../../common/Typography';
 import { CommonCard } from '../../ui/cards/CommonCard';
-import ApiServices from '@/app/api/apiServices';
 import RouterButton from '../../ui/client/RouterButton';
 import CommonCardShimmerUi from '../../ui/shimmer/CommonCardShimmer';
 import { notFound } from 'next/navigation';
@@ -20,7 +19,7 @@ export async function TrendingNow() {
   return (
     <Fragment>
       <div className="flex justify-between items-end">
-        <Typography as="h2" variant="h2">
+        <Typography as="h2" variant="h3">
           Trending Now
         </Typography>
         <RouterButton navigateTo={'/all/trending'} variant="link">

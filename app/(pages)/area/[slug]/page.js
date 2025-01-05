@@ -1,4 +1,3 @@
-import ApiServices from '@/app/api/apiServices';
 import { CommonCard } from '@/app/components/ui/cards/CommonCard';
 import CommonCardShimmerUi from '@/app/components/ui/shimmer/CommonCardShimmer';
 import { getFilterResults } from '@/app/hooks/filter';

@@ -1,8 +1,13 @@
-'use client';
 import LoginForm from '@/app/components/forms/LoginForm';
 import React from 'react';
 import { Typography } from '@/app/components/common/Typography';
 import Image from 'next/image';
+
+export const metadata = {
+  title: 'Login – Access Your TasteBite Account',
+  description:
+    'Welcome back! Log in to your TasteBite account to explore personalized recipes, save your favorites, and connect with our community. If you don’t have an account yet, sign up today and start your culinary adventure!',
+};
 
 function Login() {
   return (
