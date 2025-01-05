@@ -31,7 +31,7 @@ export default function LoginForm() {
         setIsLoading(false);
         resetForm();
       } else if (result?.ok) {
-        await router.push('/');
+        router.push('/');
       }
     } catch (error) {
       setIsError('Login Failed. Please try again.');
