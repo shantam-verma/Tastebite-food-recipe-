@@ -60,7 +60,11 @@ export default async function SingleMeal({ params }) {
           {response?.strMeal}
         </Typography>
         <Link href={response?.strMealThumb}>
-          <DynamicImage url={response?.strMealThumb} alt={response?.strMeal} />
+          <DynamicImage
+            url={response?.strMealThumb}
+            alt={response?.strMeal}
+            className="h-60 w-60 md:h-full md:w-full"
+          />
         </Link>
       </div>
       <Typography as="h1" variant="h3">

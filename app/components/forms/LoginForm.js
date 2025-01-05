@@ -8,28 +8,34 @@ import { AiOutlineEyeInvisible } from 'react-icons/ai';
 import { ActionButton } from '../ui/server/ActionButton';
 import { signIn } from 'next-auth/react';
 import { ErrorText } from './ErrorText';
+import { useRouter } from 'next/navigation';
 
 export default function LoginForm() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isError, setIsError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
+    setIsLoading(true);
     try {
       const result = await signIn('credentials', {
         username: values.username,
         password: values.password,
-        redirect: true,
+        redirect: false,
         callbackUrl: '/',
       });
 
       if (result?.error) {
         setIsError('Please enter correct credentials!');
+        setIsLoading(false);
         resetForm();
+      } else if (result?.ok) {
+        await router.push('/');
       }
     } catch (error) {
       setIsError('Login Failed. Please try again.');
-    } finally {
-      setSubmitting(false);
+      setIsLoading(false);
     }
   };
 
@@ -46,7 +52,7 @@ export default function LoginForm() {
           validationSchema={LoginSchema}
           onSubmit={handleSubmit}
         >
-          {({ isSubmitting, handleChange, setFieldTouched }) => (
+          {({ handleChange, setFieldTouched }) => (
             <Form className="space-y-4">
               <FormField
                 name="username"
@@ -92,9 +98,9 @@ export default function LoginForm() {
               <ActionButton
                 type="submit"
                 className="w-full bg-btn-bg text-btn-text"
-                disabled={isSubmitting}
+                disabled={isLoading}
               >
-                {isSubmitting ? 'Logging in...' : 'Login'}
+                {isLoading ? 'Logging in...' : 'Login'}
               </ActionButton>
             </Form>
           )}

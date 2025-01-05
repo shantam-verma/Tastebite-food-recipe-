@@ -1,11 +1,10 @@
-import ApiServices from '@/app/api/apiServices';
 import { Typography } from '@/app/components/common/Typography';
 import { CommonCard } from '@/app/components/ui/cards/CommonCard';
 import { DynamicImage } from '@/app/components/ui/server/DynamicImage';
 import CommonCardShimmerUi from '@/app/components/ui/shimmer/CommonCardShimmer';
 import { getFilterResults } from '@/app/hooks/filter';
 import { INGREDIENT_IMG_URL } from '@/app/utils/constants';
-import { slugify, unslugify } from '@/app/utils/helpers';
+import { unslugify } from '@/app/utils/helpers';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React, { Fragment, Suspense } from 'react';

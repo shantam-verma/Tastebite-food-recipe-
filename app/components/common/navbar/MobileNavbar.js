@@ -59,7 +59,7 @@ export function MobileNavbar() {
           <div className="float-right min-h-full w-[85%] bg-white dark:bg-[#121212] px-6 pt-12 shadow-2xl text-center">
             <NavLinks
               className="flex flex-col gap-6 justify-center items-center w-full mt-5"
-              linkClassName="bg-button-bg text-content transition-[border] duration-500 ease-in-out border-b border-transparent hover:border-content"
+              linkClassName="transition-[border] duration-500 ease-in-out hover:border-b hover:border-content block sm:hidden"
               linkActiveClassName="border-b border-content transition-[border] duration-500 cubic-bezier(0.4, 0.0, 0.2, 1)"
             />
           </div>

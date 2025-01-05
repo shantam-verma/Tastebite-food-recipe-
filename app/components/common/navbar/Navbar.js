@@ -20,7 +20,7 @@ function Navbar() {
         </Typography>
       </Link>
       <NavLinks
-        className="flex space-x-4 border-transparent"
+        className="flex space-x-4"
         linkClassName="transition-[border] duration-500 ease-in-out hover:border-b hover:border-content hidden sm:block rounded-md"
         linkActiveClassName="border-b border-content transition-[border] duration-500 cubic-bezier(0.4, 0.0, 0.2, 1)"
       />

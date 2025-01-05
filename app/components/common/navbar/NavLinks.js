@@ -17,7 +17,7 @@ export function NavLinks({ className, linkClassName, linkActiveClassName }) {
           href={href}
           className={`transition-colors duration-300 px-3 py-2 text-sm font-medium 
           ${linkClassName || ''}
-          ${pathname === href ? `${linkActiveClassName || ''}` : ''} 
+          ${pathname === href ? `${linkActiveClassName || ''}` : 'border-b border-transparent'} 
           
           `.trim()}
         >
