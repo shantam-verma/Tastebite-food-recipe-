@@ -109,9 +109,9 @@ export default async function SingleMeal({ params }) {
 
       {videoId && (
         <iframe
-          className="mx-auto pt-10 aspect-video self-stretch"
-          width="560"
-          height="315"
+          className="mx-auto w-full pt-10 aspect-video self-stretch"
+          // width="560"
+          // height="315"
           src={`https://www.youtube.com/embed/${videoId}`}
           title="YouTube video player"
           frameBorder="0"
