@@ -20,7 +20,7 @@ export default function ErrorBoundary({ error, reset }) {
   };
 
   return (
-    <section className="flex items-center justify-center p-8">
+    <section className="h-screen flex items-center justify-center p-8">
       <div className="text-center max-w-md">
         <Typography
           as="h1"

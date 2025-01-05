@@ -7,7 +7,7 @@ export function Hero() {
     <div className="w-full h-full relative">
       <DynamicImage
         url="/images/header_img.png"
-        alt="cover image"
+        alt="Tastebite cover image"
         className="w-full h-auto"
       />
       <Typography
